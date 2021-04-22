@@ -7,8 +7,6 @@ const fibo = (n, memo={}) => {
     return memo[n];
 };
 
-console.log(fibo(1000))
-
 const gridTraveler = (m, n, memo={}) => {
     const key = m + ',' + n;
     if (key in memo) return memo[key]
@@ -19,4 +17,21 @@ const gridTraveler = (m, n, memo={}) => {
     return memo[key]
 };
 
-console.log(gridTraveler(100, 100))
+const canSum = (targetSum, numbers, memo={}) => {
+    if (targetSum in memo) return memo[targetSum]
+    if (targetSum === 0) return true;
+    if (targetSum < 0) return false;
+
+    for (let num of numbers) {
+        const remainder = targetSum - num;
+        if (canSum(remainder, numbers, memo)) {
+            memo[targetSum] = true
+            return true;
+        };
+    };
+
+    memo[targetSum] = false
+    return false;
+};
+
+console.log(canSum(300, [7]))
