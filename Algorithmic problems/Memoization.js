@@ -72,4 +72,3 @@ const bestSum = (targetSum, numbers, memo={}) => {
     memo[targetSum] = shortestCombination;
     return shortestCombination;
 };
-
