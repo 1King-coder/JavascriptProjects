@@ -18,7 +18,7 @@ function Product (name, price, stored) {
     });
 };
 
-const p1 = new Product('Smartphone', 1999, 5);
+const p1 = new Product('Smartphone', 1999, '5');
 
 console.log(p1)
 
