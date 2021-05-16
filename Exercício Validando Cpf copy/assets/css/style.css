@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 :root {
-    --primary-background: url(http://www.anime-evo.net/wp-content/uploads/2020/01/SomaMori_01_4.jpg);
+    --primary-background: url(./img/SomaMori_01_4.jpg);
     --primary-color-darker: rgba(255, 245, 245, 0.5)
 }
 
