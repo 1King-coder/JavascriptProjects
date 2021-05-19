@@ -1,13 +1,3 @@
-const form = document.querySelector('#form')
-const container = document.querySelector('.container')
-
-
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    const sentCpf = new ValidateCPF (e.target.querySelector('#cpf').value);
-    setResult(sentCpf.validate());
-});
-
 class ValidateCPF {
     constructor(cpf) {
         Object.defineProperty(this, 'cpf', {
@@ -36,14 +26,14 @@ class ValidateCPF {
     };
 
     validate () {
-        if (this.cpf[0].repeat(this.cpf.length)) return false;
         if (this.cpf.length < 11) return false;
+        if (this.cpf === this.cpf[0].repeat(this.cpf.length)) return false;
 
         return this.cpf === this.generateCorrectCpf();
     };
 
     digitOne () {
-        const total = this.calculateTotal(Array.from(this.cpf.slice(0,9)), 10);
+        const total = this.calculateTotal(Array.from(this.cpf.slice(0, 9)), 10);
 
         const cpfWithD1 = this.cpf.slice(0,9) + ValidateCPF.formula(total);
 
@@ -57,29 +47,4 @@ class ValidateCPF {
 
         return correctCpf;
     };
-
-};
-
-const createDiv = () => {
-    return document.createElement('div');
-};
-
-const setResult = (result) => {
-    thereIsDiv()
-    const div = createDiv();
-
-    if (result) {
-        div.setAttribute('class', 'Valid');
-        div.innerHTML = 'CPF VÁLIDO';
-    } else {
-        div.setAttribute('class', 'Invalid');
-        div.innerHTML = 'CPF INVÁLIDO';
-    };
-    
-    container.appendChild(div);
-};
-
-const thereIsDiv = () => {
-    const thisDiv = document.querySelector('div');
-    if (thisDiv) thisDiv.remove();
 };
