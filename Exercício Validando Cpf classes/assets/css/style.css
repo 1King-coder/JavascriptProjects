@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-background: url(./img/SomaMori_01_4.jpg);
+    --primary-color-darker: rgba(255, 245, 245, 0.5)
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: var(--primary-background);
+    background-size: cover;
+    font-family: 'Open sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.container {
+    max-width: 640px;
+    margin:  50px auto;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+form label {
+    display: block;
+    font-family: 'Open sans', sans-serif;
+    font-size: 25px;
+}
+
+form input {
+    border-color: rgba(0, 0, 0, 0.383);
+    padding-left: 16px;
+    background-color: rgba(255, 255, 255, 0.52);
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-family: 'Open sans' ,sans-serif;
+}
+
+form input:focus {
+    border-radius: 20px;
+    box-shadow: rgba(252, 48, 48, 0.5);
+}
+
+
+.Valid {
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 5px 16px;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    font-family: 'Open sans', sans-serif;
+    display: block;
+    background-color: rgba(4, 255, 108, 0.452);
+}
+
+.Invalid {
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 5px 16px;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    font-family: 'Open sans', sans-serif;
+    display: block;
+    background-color: rgba(255, 4, 4, 0.452);
+}
+
+form button {
+    border-color: rgba(0, 0, 0, 0.24);
+    font-family: 'Open sans', sans-serif;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+form button:hover {
+    cursor: pointer;
+    background: var(--primary-color-darker);
+}
