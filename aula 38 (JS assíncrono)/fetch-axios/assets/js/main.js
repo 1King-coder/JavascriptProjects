@@ -1,10 +1,41 @@
-fetch('pessoas.json')
-  .then(resposta => resposta.json())
-  .then(json => carregaElNaPag(json))
+axios('pessoas.json')
+  .then(resposta => carregaElNaPag(resposta.data))
+
+const thead = document.createElement('thead');
+const tr = () => document.createElement('tr');
+const th = () => document.createElement('th');
+
+
+
 
 function carregaElNaPag(json) {
   const table = document.createElement('table');
+  const th1 = th();
+  th1.innerHTML = 'Nome';
+  
+  const th2 = th();
+  th2.innerHTML = 'Idade';
+  
+  const th3 = th();
+  th3.innerHTML = 'Salario';
+  
+  const th4 = th();
+  th4.innerHTML = 'CPF';
+  
+  
+  
+  thead.appendChild(tr().appendChild(th1))
 
+  thead.appendChild(tr().appendChild(th2))
+  
+  thead.appendChild(tr().appendChild(th3))
+
+  
+  thead.appendChild(tr().appendChild(th4))
+
+  table.appendChild(thead)
+
+ 
   for (let pessoa of json) {
     const tr = document.createElement('tr');
 
