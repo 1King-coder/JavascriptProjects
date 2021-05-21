@@ -36,7 +36,7 @@ class ValidateCPF {
     };
 
     validate () {
-        if (this.cpf[0].repeat(this.cpf.length)) return false;
+        if (this.cpf[0].repeat(this.cpf.length) === this.cpf) return false;
         if (this.cpf.length < 11) return false;
 
         return this.cpf === this.generateCorrectCpf();
