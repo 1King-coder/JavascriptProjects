@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://Webpack-boilerplate/./src/index.js"],"names":["alert"],"mappings":";;;;;AAAAA,KAAK,CAAC,cAAD,CAAL,C","file":"bundle.js","sourcesContent":["alert('hello world!')"],"sourceRoot":""}
