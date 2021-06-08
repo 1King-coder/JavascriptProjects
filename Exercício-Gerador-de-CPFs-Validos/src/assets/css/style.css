@@ -39,14 +39,14 @@ h1 {
 .generated-cpf {
     padding: 2em;
     margin: 1em;
-    background-image: url(http://www.finisgeekis.com/wp-content/uploads/2020/02/20200210-cover-to-your-eternity-1280x906.jpg);
+    background-image: linear-gradient(to bottom right, rgb(83, 83, 228), rgb(224, 34, 34));
     background-size: cover;
     border-radius: 1.5em;
 }
 
 .cpf {
     padding: 1em;
-    background: linear-gradient(to bottom right, rgb(206, 134, 39), rgb(255, 18, 255));
+    background: linear-gradient(to bottom right, rgb(247, 247, 247), rgb(255, 255, 255));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration-line: line-through;
