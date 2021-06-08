@@ -18,20 +18,38 @@ body {
     font-family: 'Open sans', sans-serif;
     font-size: 1.3em;
     line-height: 1.5em;
+    display: grid;
+    place-content: center;
 }
 
 .container {
-    max-width: 640px;
-    margin:  50px auto;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 20px;
+    max-width: 50em;
+    margin:  3em auto;
+    background: rgb(255, 255, 255);
+    padding: 1.3em;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
 }
 
-form input, form label, form button {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px; 
+h1 {
+    text-align: center;
+}
+
+.generated-cpf {
+    padding: 2em;
+    margin: 1em;
+    background-image: url(http://www.finisgeekis.com/wp-content/uploads/2020/02/20200210-cover-to-your-eternity-1280x906.jpg);
+    background-size: cover;
+    border-radius: 1.5em;
+}
+
+.cpf {
+    padding: 1em;
+    background: linear-gradient(to bottom right, rgb(206, 134, 39), rgb(255, 18, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-line: line-through;
 }
 
 form input {
@@ -45,19 +63,22 @@ form input:focus {
     box-shadow: rgba(252, 48, 48, 0.5);
 }
 
-form button {
+input[type="button"] {
     border: none;
-    background: white;
-    font-size: 18px;
+    background-image: linear-gradient(to top left, rgb(0, 255, 136), rgb(8, 87, 34));
+    font-size: 0.8em;
     font-weight: 700;
-    height: 40px;
+    height: 3em;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 3.5em;
+    color: white;
+    border-radius: 20px;
 }
 
-form button:hover {
-    background: var(--primary-color-darker);
+input[type="button"]:hover {
+    color: rgb(214, 214, 214);
+    background: linear-gradient(to top left, rgb(2, 90, 68), rgb(20, 172, 0));
 }
-form button:active {
+input[type="button"]:active {
     outline: solid gray 2px;
 }

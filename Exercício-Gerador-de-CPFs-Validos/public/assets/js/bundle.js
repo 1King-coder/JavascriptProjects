@@ -2,6 +2,77 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/Validate.js":
+/*!*************************!*\
+  !*** ./src/Validate.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ValidateCPF)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ValidateCPF = /*#__PURE__*/function () {
+  function ValidateCPF() {
+    _classCallCheck(this, ValidateCPF);
+  }
+
+  _createClass(ValidateCPF, null, [{
+    key: "formula",
+    value: function formula(total) {
+      var digit = 11 - total % 11;
+      return digit < 9 ? String(digit) : '0';
+    }
+  }, {
+    key: "calculateTotal",
+    value: function calculateTotal(cpfInArray, regressive) {
+      return cpfInArray.reduce(function (ac, e) {
+        ac += Number(e) * regressive;
+        regressive--;
+        return ac;
+      }, 0);
+    }
+  }, {
+    key: "generateCorrectCpf",
+    value: function generateCorrectCpf(cpf) {
+      return ValidateCPF.digitOne(cpf);
+    }
+  }, {
+    key: "validate",
+    value: function validate(cpf) {
+      if (cpf[0].repeat(cpf.length) === cpf) return false;
+      return cpf === ValidateCPF.generateCorrectCpf(cpf);
+    }
+  }, {
+    key: "digitOne",
+    value: function digitOne(cpf) {
+      var total = ValidateCPF.calculateTotal(Array.from(cpf.slice(0, 9)), 10);
+      var cpfWithD1 = cpf.slice(0, 9) + ValidateCPF.formula(total);
+      return ValidateCPF.digitTwo(cpfWithD1);
+    }
+  }, {
+    key: "digitTwo",
+    value: function digitTwo(cpfD1) {
+      var total = ValidateCPF.calculateTotal(Array.from(cpfD1), 11);
+      var correctCpf = cpfD1 + ValidateCPF.formula(total);
+      return correctCpf;
+    }
+  }]);
+
+  return ValidateCPF;
+}();
+
+
+;
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css":
 /*!************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css ***!
@@ -22,7 +93,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\r\n    --primary-color-darker: rgba(255, 245, 245, 0.5)\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    height: 100vh;\r\n    background-image: linear-gradient(to bottom right, rgb(1, 177, 80), rgb(0, 71, 21));\r\n    background-size: cover;\r\n    font-family: 'Open sans', sans-serif;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n}\r\n\r\n.container {\r\n    max-width: 640px;\r\n    margin:  50px auto;\r\n    background: rgba(255, 255, 255, 0.5);\r\n    padding: 20px;\r\n    border-radius: 20px;\r\n}\r\n\r\nform input, form label, form button {\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 10px; \r\n}\r\n\r\nform input {\r\n    font-size: 16px;\r\n    height: 30px;\r\n    padding: 0 20px\r\n}\r\n\r\nform input:focus {\r\n    outline: solid black 0.5px;\r\n    box-shadow: rgba(252, 48, 48, 0.5);\r\n}\r\n\r\nform button {\r\n    border: none;\r\n    background: white;\r\n    font-size: 18px;\r\n    font-weight: 700;\r\n    height: 40px;\r\n    cursor: pointer;\r\n    margin-top: 30px;\r\n}\r\n\r\nform button:hover {\r\n    background: var(--primary-color-darker);\r\n}\r\nform button:active {\r\n    outline: solid gray 2px;\r\n}", "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAEA;IACI;AACJ;;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,SAAS;IACT,UAAU;IACV,aAAa;IACb,mFAAmF;IACnF,sBAAsB;IACtB,oCAAoC;IACpC,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;IAClB,oCAAoC;IACpC,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,YAAY;IACZ;AACJ;;AAEA;IACI,0BAA0B;IAC1B,kCAAkC;AACtC;;AAEA;IACI,YAAY;IACZ,iBAAiB;IACjB,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,eAAe;IACf,gBAAgB;AACpB;;AAEA;IACI,uCAAuC;AAC3C;AACA;IACI,uBAAuB;AAC3B","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');\r\n\r\n:root {\r\n    --primary-color-darker: rgba(255, 245, 245, 0.5)\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    height: 100vh;\r\n    background-image: linear-gradient(to bottom right, rgb(1, 177, 80), rgb(0, 71, 21));\r\n    background-size: cover;\r\n    font-family: 'Open sans', sans-serif;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n}\r\n\r\n.container {\r\n    max-width: 640px;\r\n    margin:  50px auto;\r\n    background: rgba(255, 255, 255, 0.5);\r\n    padding: 20px;\r\n    border-radius: 20px;\r\n}\r\n\r\nform input, form label, form button {\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 10px; \r\n}\r\n\r\nform input {\r\n    font-size: 16px;\r\n    height: 30px;\r\n    padding: 0 20px\r\n}\r\n\r\nform input:focus {\r\n    outline: solid black 0.5px;\r\n    box-shadow: rgba(252, 48, 48, 0.5);\r\n}\r\n\r\nform button {\r\n    border: none;\r\n    background: white;\r\n    font-size: 18px;\r\n    font-weight: 700;\r\n    height: 40px;\r\n    cursor: pointer;\r\n    margin-top: 30px;\r\n}\r\n\r\nform button:hover {\r\n    background: var(--primary-color-darker);\r\n}\r\nform button:active {\r\n    outline: solid gray 2px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\r\n    --primary-color-darker: rgba(255, 245, 245, 0.5)\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    height: 100vh;\r\n    background-image: linear-gradient(to bottom right, rgb(1, 177, 80), rgb(0, 71, 21));\r\n    background-size: cover;\r\n    font-family: 'Open sans', sans-serif;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n    display: grid;\r\n    place-content: center;\r\n}\r\n\r\n.container {\r\n    max-width: 50em;\r\n    margin:  3em auto;\r\n    background: rgb(255, 255, 255);\r\n    padding: 1.3em;\r\n    border-radius: 20px;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n}\r\n\r\n.generated-cpf {\r\n    padding: 2em;\r\n    margin: 1em;\r\n    background-image: url(http://www.finisgeekis.com/wp-content/uploads/2020/02/20200210-cover-to-your-eternity-1280x906.jpg);\r\n    background-size: cover;\r\n    border-radius: 1.5em;\r\n}\r\n\r\n.cpf {\r\n    padding: 1em;\r\n    background: linear-gradient(to bottom right, rgb(206, 134, 39), rgb(255, 18, 255));\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent;\r\n    text-decoration-line: line-through;\r\n}\r\n\r\nform input {\r\n    font-size: 16px;\r\n    height: 30px;\r\n    padding: 0 20px\r\n}\r\n\r\nform input:focus {\r\n    outline: solid black 0.5px;\r\n    box-shadow: rgba(252, 48, 48, 0.5);\r\n}\r\n\r\ninput[type=\"button\"] {\r\n    border: none;\r\n    background-image: linear-gradient(to top left, rgb(0, 255, 136), rgb(8, 87, 34));\r\n    font-size: 0.8em;\r\n    font-weight: 700;\r\n    height: 3em;\r\n    cursor: pointer;\r\n    margin-top: 3.5em;\r\n    color: white;\r\n    border-radius: 20px;\r\n}\r\n\r\ninput[type=\"button\"]:hover {\r\n    color: rgb(214, 214, 214);\r\n    background: linear-gradient(to top left, rgb(2, 90, 68), rgb(20, 172, 0));\r\n}\r\ninput[type=\"button\"]:active {\r\n    outline: solid gray 2px;\r\n}", "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAEA;IACI;AACJ;;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,SAAS;IACT,UAAU;IACV,aAAa;IACb,mFAAmF;IACnF,sBAAsB;IACtB,oCAAoC;IACpC,gBAAgB;IAChB,kBAAkB;IAClB,aAAa;IACb,qBAAqB;AACzB;;AAEA;IACI,eAAe;IACf,iBAAiB;IACjB,8BAA8B;IAC9B,cAAc;IACd,mBAAmB;IACnB,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,yHAAyH;IACzH,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,YAAY;IACZ,kFAAkF;IAClF,6BAA6B;IAC7B,oCAAoC;IACpC,kCAAkC;AACtC;;AAEA;IACI,eAAe;IACf,YAAY;IACZ;AACJ;;AAEA;IACI,0BAA0B;IAC1B,kCAAkC;AACtC;;AAEA;IACI,YAAY;IACZ,gFAAgF;IAChF,gBAAgB;IAChB,gBAAgB;IAChB,WAAW;IACX,eAAe;IACf,iBAAiB;IACjB,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,yBAAyB;IACzB,yEAAyE;AAC7E;AACA;IACI,uBAAuB;AAC3B","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');\r\n\r\n:root {\r\n    --primary-color-darker: rgba(255, 245, 245, 0.5)\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    height: 100vh;\r\n    background-image: linear-gradient(to bottom right, rgb(1, 177, 80), rgb(0, 71, 21));\r\n    background-size: cover;\r\n    font-family: 'Open sans', sans-serif;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n    display: grid;\r\n    place-content: center;\r\n}\r\n\r\n.container {\r\n    max-width: 50em;\r\n    margin:  3em auto;\r\n    background: rgb(255, 255, 255);\r\n    padding: 1.3em;\r\n    border-radius: 20px;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n}\r\n\r\n.generated-cpf {\r\n    padding: 2em;\r\n    margin: 1em;\r\n    background-image: url(http://www.finisgeekis.com/wp-content/uploads/2020/02/20200210-cover-to-your-eternity-1280x906.jpg);\r\n    background-size: cover;\r\n    border-radius: 1.5em;\r\n}\r\n\r\n.cpf {\r\n    padding: 1em;\r\n    background: linear-gradient(to bottom right, rgb(206, 134, 39), rgb(255, 18, 255));\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent;\r\n    text-decoration-line: line-through;\r\n}\r\n\r\nform input {\r\n    font-size: 16px;\r\n    height: 30px;\r\n    padding: 0 20px\r\n}\r\n\r\nform input:focus {\r\n    outline: solid black 0.5px;\r\n    box-shadow: rgba(252, 48, 48, 0.5);\r\n}\r\n\r\ninput[type=\"button\"] {\r\n    border: none;\r\n    background-image: linear-gradient(to top left, rgb(0, 255, 136), rgb(8, 87, 34));\r\n    font-size: 0.8em;\r\n    font-weight: 700;\r\n    height: 3em;\r\n    cursor: pointer;\r\n    margin-top: 3.5em;\r\n    color: white;\r\n    border-radius: 20px;\r\n}\r\n\r\ninput[type=\"button\"]:hover {\r\n    color: rgb(214, 214, 214);\r\n    background: linear-gradient(to top left, rgb(2, 90, 68), rgb(20, 172, 0));\r\n}\r\ninput[type=\"button\"]:active {\r\n    outline: solid gray 2px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -528,7 +599,71 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
+/* harmony import */ var _Validate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Validate */ "./src/Validate.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+function genNum(times) {
+  var __num = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+  for (var i = 1; i <= times; i++) {
+    __num += Math.floor(Math.random() * (9 - 0) - 0).toString();
+  }
+
+  ;
+  return __num;
+}
+
+;
+
+var createDiv = function createDiv() {
+  return document.createElement('div');
+};
+
+var createH1 = function createH1() {
+  return document.createElement('h1');
+};
+
+var GenerateCpf = /*#__PURE__*/function () {
+  function GenerateCpf() {
+    _classCallCheck(this, GenerateCpf);
+  }
+
+  _createClass(GenerateCpf, null, [{
+    key: "buildCpf",
+    value: function buildCpf(cpf) {
+      return _Validate__WEBPACK_IMPORTED_MODULE_1__.default.digitOne(cpf);
+    }
+  }, {
+    key: "formatedCpf",
+    value: function formatedCpf(cpf) {
+      return cpf.slice(0, 3) + '.' + cpf.slice(3, 6) + '.' + cpf.slice(6, 9) + '-' + cpf.slice(9, 12);
+    }
+  }]);
+
+  return GenerateCpf;
+}();
+
+;
+var div = createDiv();
+var h1 = createH1();
+h1.setAttribute('class', 'cpf');
+div.setAttribute('class', 'generated-cpf');
+var cpfContainer = document.querySelector('.cpf-container');
+cpfContainer.appendChild(div);
+h1.innerText = GenerateCpf.formatedCpf(GenerateCpf.buildCpf(genNum(9)));
+div.appendChild(h1);
+document.querySelector('[type="button"]').addEventListener('click', function (e) {
+  h1.innerText = GenerateCpf.formatedCpf(GenerateCpf.buildCpf(genNum(9)));
+  if (div.childElementCount !== 0) div.removeChild(h1);
+  div.appendChild(h1);
+});
 })();
 
 /******/ })()
