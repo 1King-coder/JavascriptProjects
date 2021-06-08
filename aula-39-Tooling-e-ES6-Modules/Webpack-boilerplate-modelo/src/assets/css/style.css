@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 :root {
-    --primary-background: url(img/SomaMori_01_4.jpg);
     --primary-color-darker: rgba(255, 245, 245, 0.5)
 }
 
@@ -13,7 +12,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: var(--primary-background);
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, rgb(1, 177, 80), rgb(0, 71, 21));
     background-size: cover;
     font-family: 'Open sans', sans-serif;
     font-size: 1.3em;
