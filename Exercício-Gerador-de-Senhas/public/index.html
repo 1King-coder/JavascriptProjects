@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo</title>
+</head>
+
+<body>
+    <main class="container">
+        <div>
+            <h1>Password Generator</h1>
+
+            <h3 class="generated-pass"></h3>
+            
+            <label for="length">Password length</label>
+            <input type="number" name="length" id="length" value="20" min="1" max="65">
+            <div class="chk-boxes">
+                <div class="chkbox">
+                    <label for="chk-upper">Uppercase</label>
+                    <input type="checkbox" name="chk-upper" id="chk-upper" checked>
+                </div>
+                <div class="chkbox">
+                    <label for="chk-lower">Lowercase</label>
+                    <input type="checkbox" name="chk-lower" id="chk-lower">
+                </div>
+                <div class="chkbox">
+                    <label for="chk-numbers">Numbers</label>
+                    <input type="checkbox" name="chk-numbers" id="chk-numbers" checked>
+                </div>
+                <div class="chkbox">
+                    <label for="chk-symbols">Symbols</label>
+                    <input type="checkbox" name="chk-symbols" id="chk-symbols">
+                </div>
+            </div>
+            <button id="gen">Generate</button>
+        </div>
+    </main>
+
+    <script src="./assets/js/bundle.js"></script>
+</body>
+
+</html>
