@@ -19,5 +19,5 @@ export default function genPassword(length, upper, lower, numbers, symbols) {
         symbols && password.push(genSymbol());
     };
 
-    return length? password.join('').slice(0, length):'Nada Selecionado.';
+    return length?password.join('').slice(0, length):'Nada Selecionado.';
 };
