@@ -1,0 +1,56 @@
+
+NPM:
+
+    npm init -y -> inicializa o npm em uma dada pasta
+                   (maneira mais rápida)
+
+    npm install moduleName -> instala a versão
+                              mais atualizada
+                              do modulo desejado.
+
+    moduleName@VERSION -> instala a versão
+                          especificada do modulo.
+
+    --save-dev -> instala o modulo como devDependecies.
+
+    npm unistall moduleName -> desinstala o modulo desejado.
+
+    npm ls ->  lista as instalações (pastas e arquivos)
+
+    npm ls --depth=x -> lista as instalações com a profundidade x
+                        de pastas abaixo.
+    
+    npm outdated -> lista pacotes desatualizados.
+
+
+
+
+
+
+
+Versões: 
+
+    0   .   0   .   0   
+   major  minor    patch
+
+patch -> Quando , na atualização, ocorre
+         somente a correção de um bug
+         soma 1 ao patch
+         ex.: 1.0.0 -> 1.0.1
+
+minor -> Quando há a inclusão de algum
+         novo recurso na aplicação que
+         não quebre a compatibilidade com
+         as versões anteriores.
+         soma 1 ao minor.
+         ex.: 1.3.1 -> 1.4.1
+
+major -> Quando ocorre a quebra da compatibilidade
+         com alguns recursos das versões anteriores.
+         soma 1 ao major e zera o resto:
+         ex.: 3.17.2 -> 4.0.0
+
+(^)x.y.z -> ^ significa que pode haver a mudança
+            dos valores de minor e/ou patch.
+
+(~)x.y.z -> ~ só pode haver mudança do patch.
