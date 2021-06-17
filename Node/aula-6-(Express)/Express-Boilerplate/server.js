@@ -1,27 +1,30 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')  // DB module
 
+// Stablish connection with MongoDB
 mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
     .then( () => {
         app.emit('started')
     })
     .catch(e => console.log(e));
 
-const session = require('express-session');
-const MongoStore = require('connect-mongo');;
+
+const session = require('express-session');  // web Session
+const MongoStore = require('connect-mongo');  // MongoStore for storing session
 
 const flash = require('connect-flash');
 
 const routes = require('./routes')
 const path = require('path');
-const { middlewareGloval } = require('./src/middlewares/middleware')
+const { globalMiddleware } = require('./src/middlewares/middleware')
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));  // Allow request.body
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
+// Session Ops
 const sessionOptions = session({
     secret: process.env.SECRET,
     store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
