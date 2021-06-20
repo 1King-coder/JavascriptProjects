@@ -1,0 +1,17 @@
+<%- include('includes/head'); %>
+<body>
+    <section class="container">
+        <h1>
+            Lorem ipsum dolor sit amet
+        <!--% if (typeof title !== undefined) %-->
+          <!--%= title %-->
+        <!--%  else  %-->
+       <!--Title not sent-->
+        </h1>
+        <form action="/" method="POST">
+            <label for="username">Username: </label>
+            <input type="text" name="username">
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+<%- include('includes/footer'); %>    
