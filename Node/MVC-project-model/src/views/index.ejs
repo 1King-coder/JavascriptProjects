@@ -1,0 +1,14 @@
+<%- include('includes/head'); %>
+<body>
+    <section class="container">
+        <h1>Lorem, ipsum dolor sit amet</h1>
+        <form action="/" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <label for="username">Username: </label>
+            <input type="text" name="username">
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+    <script src="./assets/js/bundle.js"></script>
+</body>
+</html>
