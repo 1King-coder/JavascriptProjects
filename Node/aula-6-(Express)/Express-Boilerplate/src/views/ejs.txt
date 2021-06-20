@@ -1,0 +1,17 @@
+<% %> - flux controller
+
+Ex.: 
+
+<% if( ... ) { %>
+    <%= print something %>
+<% } else { %>
+    <%- execute something  %>
+<% } %>
+
+<%= %> - Prints without scape characters. just print.
+
+<%- %> - Prints Executing what is in it, like HTML and others.
+
+<%# %> - Comment.
+
+<%- include('path/file') %> - include some ejs in it's place.
