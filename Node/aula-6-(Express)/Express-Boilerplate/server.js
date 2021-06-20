@@ -16,12 +16,14 @@ const MongoStore = require('connect-mongo');  // MongoStore for storing session
 
 const flash = require('connect-flash');
 
-const routes = require('./routes')
+const routes = require('./routes');
 const path = require('path');
-const { globalMiddleware } = require('./src/middlewares/middleware')
+const helmet = require('helmet');
+const csrf = require('csurf');
+const { globalMiddleware, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware')
 
+// app.use(helmet());   Only use when with HTTPS
 app.use(express.urlencoded({ extended: true }));  // Allow request.body
-
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 // Session Ops
@@ -42,6 +44,11 @@ app.use(flash());
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
+app.use(csrf());
+// our middlewares
+app.use(globalMiddleware);
+app.use(checkCsrfError);
+app.use(csrfMiddleware);
 app.use(routes);
 
 app.on('started', () => {
