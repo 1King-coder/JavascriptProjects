@@ -22,7 +22,9 @@ const helmet = require('helmet');
 const csrf = require('csurf');
 const { globalMiddleware, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware')
 
-// app.use(helmet());   Only use when with HTTPS
+app.use(helmet());
+
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));  // Allow request.body
 app.use(express.static(path.resolve(__dirname, 'public')));
 
