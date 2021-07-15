@@ -17,7 +17,9 @@ class UserController {
       const users = await User.findAll({ attributes: ['id', 'nome', 'email'] });
       return res.json(users);
     } catch (e) {
-      return res.json(null);
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
     }
   }
 
@@ -26,7 +28,9 @@ class UserController {
       const user = await User.findByPk(req.userId, { attributes: ['id', 'nome', 'email'] });
       return res.json(user);
     } catch (e) {
-      return res.json(null);
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
     }
   }
 

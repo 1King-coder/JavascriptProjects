@@ -20,6 +20,6 @@ module.exports = {
     ], {});
   },
 
-  down: async (queryInterface) => {
+  down: async () => {
   },
 };

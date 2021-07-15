@@ -1,12 +1,14 @@
-import Aluno from '../models/Aluno';
+import Student from '../models/Student';
 
 class HomeController {
-  async index(request, response) {
+  async index(req, res) {
     try {
-        const newAluno = await Aluno.create(request.body);
-        response.json(newAluno);
+      const newStudent = await Student.create(req.body);
+      return res.json(newStudent);
     } catch (e) {
-        response.json(null)
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
     }
   }
 }
