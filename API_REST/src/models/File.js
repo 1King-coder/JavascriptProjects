@@ -1,5 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
-import Aluno from './Student';
+
+import appConfig from '../config/appConfig';
 
 export default class File extends Model {
   static init(sequelize) {
@@ -22,6 +23,12 @@ export default class File extends Model {
           },
         },
       },
+      url: {
+        type: Sequelize.VIRTUAL,
+        get() {
+          return `${appConfig.url}/images/${this.getDataValue('filename')}`;
+        },
+      },
 
     }, {
       sequelize,
@@ -30,7 +37,7 @@ export default class File extends Model {
     return this;
   }
 
-  static associate() {
-    this.belongsTo(Aluno, { foreignKey: 'student_id' });
+  static associate(models) {
+    this.belongsTo(models.Aluno, { foreignKey: 'student_id' });
   }
 }

@@ -1,9 +1,27 @@
-import Student from '../models/Student';
+import Aluno from '../models/Aluno';
+import File from '../models/File';
+
+const studentsAtt = [
+  'id',
+  'nome',
+  'sobrenome',
+  'email',
+  'idade',
+  'peso',
+  'altura',
+];
+const tOrder = [['id', 'DESC'], [File, 'id', 'DESC']];
+
+const includes = { model: File, attributes: ['id', 'filename', 'url'] };
 
 class StudentController {
   async index(req, res) {
     try {
-      const student = await Student.findAll();
+      const student = await Aluno.findAll({
+        attributes: studentsAtt,
+        order: tOrder,
+        include: includes,
+      });
       return res.json(student);
     } catch (e) {
       return res.status(400).json({
@@ -14,7 +32,7 @@ class StudentController {
 
   async store(req, res) {
     try {
-      const student = await Student.create(req.body);
+      const student = await Aluno.create(req.body);
       return res.json(student);
     } catch (e) {
       return res.status(400).json({
@@ -32,7 +50,11 @@ class StudentController {
         });
       }
 
-      const student = await Student.findByPk(id);
+      const student = await Aluno.findByPk(id, {
+        attributes: studentsAtt,
+        order: tOrder,
+        include: includes,
+      });
 
       if (!student) {
         return res.status(400).json({
@@ -58,7 +80,7 @@ class StudentController {
         });
       }
 
-      const student = await Student.findByPk(id);
+      const student = await Aluno.findByPk(id);
 
       if (!student) {
         return res.status(400).json({
@@ -84,7 +106,7 @@ class StudentController {
         });
       }
 
-      const student = await Student.findByPk(id);
+      const student = await Aluno.findByPk(id);
 
       if (!student) {
         return res.status(400).json({

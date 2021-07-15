@@ -1,9 +1,9 @@
-import Student from '../models/Student';
+import Aluno from '../models/Aluno';
 
 class HomeController {
   async index(req, res) {
     try {
-      const newStudent = await Student.create(req.body);
+      const newStudent = await Aluno.create(req.body);
       return res.json(newStudent);
     } catch (e) {
       return res.status(400).json({
