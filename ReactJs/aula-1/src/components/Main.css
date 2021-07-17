@@ -11,29 +11,3 @@
   font-size: 20px;
   text-align: center;
 }
-
-.form {
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.form input[type="text"] {
-  height: 40px;
-  padding: 0 20px;
-  font-size: 20px;
-  border: 1px solid #ccc;
-  min-width: 80%;
-}
-
-.form button[type="submit"] {
-  height: 40px;
-  width: 40px;
-  border: none;
-  background: #f04c64;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
