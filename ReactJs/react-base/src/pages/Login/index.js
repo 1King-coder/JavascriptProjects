@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Container } from '../../styles/GlobalStyles';
-// import notify from '../../config/notify';
-
 import { Title } from './styled';
+
+import axios from '../../services/axios';
 
 export default function Login() {
   return (
